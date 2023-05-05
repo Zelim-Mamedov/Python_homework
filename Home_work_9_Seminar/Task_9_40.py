@@ -6,3 +6,18 @@
 # среднее
 # медиану
 
+import pandas as pd
+
+
+df = pd.DataFrame({'column': ['a', 'b', 'c', 'a', 'c']})
+
+
+one_hot = pd.get_dummies(df['column'])
+
+
+df = pd.concat([df, one_hot], axis=1)
+
+
+df.drop('column', axis=1, inplace=True)
+
+print(df)
